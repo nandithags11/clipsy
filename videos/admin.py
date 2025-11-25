@@ -4,10 +4,10 @@ from .models import Video
 # Register your models here.
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ['title', 'uploaded_by', 'duration', 'upload_date']
-    list_filter = ['uploaded_date', 'uploaded_by']
+    list_display = ['title', 'uploaded_by', 'duration', 'upload_date','views']
+    list_filter = ['upload_date', 'uploaded_by']
     search_fields = ['title', 'description']
-    readonly_fields = ['uploaded_date']
+    readonly_fields = ['upload_date']
     
     fieldsets = (
         ('Basic Information', {
@@ -17,6 +17,6 @@ class VideoAdmin(admin.ModelAdmin):
             'fields': ('video_file', 'thumbnail')
         }),
         ('Metadata', {
-            'fields': ('duration', 'views', 'uploaded_date')
+            'fields': ('duration', 'views', 'upload_date')
         }),
     )

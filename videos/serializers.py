@@ -3,12 +3,11 @@ from .models import Video
 
 class VideoSerializer(serializers.ModelSerializer):
     uploaded_by = serializers.StringRelatedField()
-    Video_url = serializers.StringRelatedField()  
-    thumbnail_url = serializers.StringRelatedField()
-    
+    video_url = serializers.SerializerMethodField()  # Changed from StringRelatedField
+    thumbnail_url = serializers.SerializerMethodField()  # Changed from StringRelatedField
     class Meta:
         model = Video
-        fields = ['id', 'title', 'description', 'upload_date', 'uploaded_by', 'video_file', 'thumbnail', 'duration']    
+        fields = ['id', 'title', 'description', 'upload_date', 'uploaded_by', 'video_file', 'thumbnail', 'duration','video_url','thumbnail_url','views']    
         read_only_fields = ['id', 'upload_date', 'uploaded_by']
         
     def get_video_url(self, obj):

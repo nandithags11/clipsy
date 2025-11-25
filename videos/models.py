@@ -11,10 +11,15 @@ class Video(models.Model):
     video_file = models.FileField(upload_to='videos/')
     thumbnail = models.ImageField(upload_to='thumbnails/', null=True, blank=True)
     duration = models.DurationField(null=True, blank=True)
+    views = models.IntegerField(default=0)
     
     class Meta:
         ordering = ['-upload_date']
 
     def __str__(self):
         return self.title
-    
+
+    def increment_views(self):
+        """Increment view count when video is watched"""
+        self.views += 1
+        self.save(update_fields=['views'])
