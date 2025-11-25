@@ -1,0 +1,277 @@
+.video-page {
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.page-header {
+  background: #1a1a1a;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  color: #888;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.refresh-btn {
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  color: #667eea;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.refresh-btn:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #2a2a2a;
+  border-radius: 8px;
+}
+
+.username {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #f44336;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background: rgba(244, 67, 54, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Content */
+.page-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.error-banner {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid #f44336;
+  color: #ff6b6b;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-banner button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 20px;
+  align-items: start;
+}
+
+.player-section {
+  width: 100%;
+}
+
+.sidebar-section {
+  position: sticky;
+  top: 90px;
+  max-height: calc(100vh - 110px);
+  overflow: hidden;
+}
+
+.no-video-selected {
+  background: #1a1a1a;
+  border-radius: 12px;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.placeholder-content {
+  text-align: center;
+  color: #666;
+}
+
+.placeholder-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.placeholder-content h2 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.placeholder-content p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.placeholder-content small {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Footer */
+.page-footer {
+  background: #1a1a1a;
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .content-grid {
+    grid-template-columns: 1fr 350px;
+  }
+}
+
+@media (max-width: 968px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sidebar-section {
+    position: static;
+    max-height: 600px;
+  }
+
+  .page-header {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 15px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .header-left,
+  .header-right {
+    justify-content: space-between;
+  }
+
+  .user-info {
+    flex: 1;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content {
+    padding: 10px;
+  }
+
+  .refresh-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .username {
+    font-size: 0.85rem;
+  }
+
+  .logout-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+}
