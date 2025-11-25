@@ -7,8 +7,8 @@ class VideoSerializer(serializers.ModelSerializer):
     thumbnail_url = serializers.SerializerMethodField()  # Changed from StringRelatedField
     class Meta:
         model = Video
-        fields = ['id', 'title', 'description', 'upload_date', 'uploaded_by', 'video_file', 'thumbnail', 'duration','video_url','thumbnail_url','views']    
-        read_only_fields = ['id', 'upload_date', 'uploaded_by']
+        fields = ['id', 'title', 'description', 'uploaded_at', 'uploaded_by', 'video_file', 'thumbnail', 'duration','video_url','thumbnail_url','views']    
+        read_only_fields = ['id', 'uploaded_at', 'uploaded_by']
         
     def get_video_url(self, obj):
         """Constructs full video file URL."""
