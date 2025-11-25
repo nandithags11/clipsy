@@ -35,17 +35,17 @@ class Command(BaseCommand):
             {
                 'title': 'Sample Video 1',
                 'description': 'First sample video for testing autoplay',
-                'duration': timedelta(seconds=120),
+                'duration': 120,
             },
             {
                 'title': 'Sample Video 2',
                 'description': 'Second sample video for testing video switching',
-                'duration': timedelta(seconds=180),
+                'duration': 180,
             },
             {
                 'title': 'Sample Video 3',
                 'description': 'Third sample video for testing the platform',
-                'duration': timedelta(seconds=150),
+                'duration': 160,
             },
         ]
         
@@ -56,6 +56,7 @@ class Command(BaseCommand):
                     'description': video_data['description'],
                     'duration': video_data['duration'],
                     'uploaded_by': user,
+                    'status': 'pending'
                 }
             )
             if created:
