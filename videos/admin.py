@@ -14,7 +14,7 @@ class VideoAdmin(admin.ModelAdmin):
             'fields': ('title', 'description', 'uploaded_by')
         }),
         ('Files', {
-            'fields': ('video_file', 'thumbnail')
+            'fields': ('original_file', 'thumbnail')
         }),
         ('Metadata', {
             'fields': ('duration', 'views', 'uploaded_at')
